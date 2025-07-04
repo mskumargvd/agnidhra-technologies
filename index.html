@@ -4,42 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agnidhra Technologies - Cyber Security, Cloud & DevOps Expert</title>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon (Optional - replace with your own) -->
-    <link rel="icon" href="https://placehold.co/32x32/047857/ffffff?text=AT" type="image/png">
-
     <style>
-        /* Custom styles for a professional look */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fffaf0; /* Peachy-beige background */
-            color: #2d3748; /* Dark gray text for contrast */
+            background-color: #1f2937; /* Slate Gray */
+            color: #d1d5db; /* Light gray text */
         }
         .nav-link {
             transition: color 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out;
             border-bottom: 2px solid transparent;
         }
         .nav-link:hover, .nav-link.active {
-            color: #047857; /* Deep Teal highlight color */
-            border-bottom-color: #047857;
+            color: #ff7f50; /* Coral */
+            border-bottom-color: #ff7f50;
         }
         .course-card, .blog-card {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            background-color: #f0fdfa; /* Soft, muted teal for cards */
+            background-color: #374151; /* Darker Gray */
+            border: 1px solid #4b5563;
         }
         .course-card:hover, .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            box-shadow: 0 10px 15px -3px rgb(255 127 80 / 0.1), 0 4px 6px -4px rgb(255 127 80 / 0.1);
         }
-        /* Animation for elements fading in on scroll */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -52,228 +43,160 @@
     </style>
 </head>
 <body class="antialiased">
-
-    <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <header class="bg-[#1f2937]/80 backdrop-blur-md shadow-lg shadow-black/20 sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-800">Agnidhra Technologies</a>
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg class="w-9 h-9 text-[#ff7f50]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <span class="text-2xl font-bold text-gray-100">Agnidhra Technologies</span>
+            </a>
             <ul class="hidden md:flex space-x-8">
-                <li><a href="index.html#about" class="nav-link text-gray-600 font-medium pb-1">About Us</a></li>
-                <li><a href="index.html#courses" class="nav-link text-gray-600 font-medium pb-1">Courses</a></li>
-                <li><a href="index.html#blog" class="nav-link text-gray-600 font-medium pb-1">Blog</a></li>
+                <li><a href="index.html#about" class="nav-link text-gray-300 font-medium pb-1">About Us</a></li>
+                <li><a href="index.html#courses" class="nav-link text-gray-300 font-medium pb-1">Courses</a></li>
+                <li><a href="index.html#blog" class="nav-link text-gray-300 font-medium pb-1">Blog</a></li>
             </ul>
-             <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <li><a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">About Us</a></li>
-                <li><a href="index.html#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">Courses</a></li>
-                <li><a href="index.html#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">Blog</a></li>
+                <li><a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">About Us</a></li>
+                <li><a href="index.html#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Courses</a></li>
+                <li><a href="index.html#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Blog</a></li>
             </ul>
         </div>
     </header>
-
     <main class="container mx-auto px-6 py-12">
-
-        <!-- Hero Section -->
         <section id="home" class="text-center py-20 fade-in-section">
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Empowering the Next Wave of Tech Leaders</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Master in-demand skills in Cyber Security, Cloud Computing, and DevOps through expert-led, hands-on training.</p>
-            <a href="#courses" class="mt-8 inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-teal-700 transition-colors duration-300">Explore Courses</a>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Empowering the Next Wave of Tech Leaders</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Master in-demand skills in Cyber Security, Cloud Computing, and DevOps through expert-led, hands-on training.</p>
+            <a href="#courses" class="mt-8 inline-block bg-[#ff7f50] text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-opacity-90 transition-colors duration-300">Explore Courses</a>
         </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 border-t border-gray-200 fade-in-section">
+        <section id="about" class="py-20 border-t border-gray-700 fade-in-section">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">About Us</h2>
-                <p class="text-lg text-gray-600 mb-8">
+                <h2 class="text-3xl font-bold text-white mb-4">About Us</h2>
+                <p class="text-lg text-gray-300 mb-8">
                     We are a team of passionate and certified professionals, each with over a decade of experience in the tech industry, specializing in cybersecurity and cloud infrastructure. Our mission at Agnidhra Technologies is to bridge the skills gap by providing high-quality, practical training that prepares students for real-world challenges. We believe in a hands-on approach to learning, ensuring our students not only understand the concepts but can also apply them effectively.
                 </p>
-                <img src="https://placehold.co/150x150/e2e8f0/333?text=AT" alt="Agnidhra Technologies Logo" class="w-32 h-32 rounded-full mx-auto shadow-lg">
+                <img src="https://placehold.co/150x150/374151/ff7f50?text=AT" alt="Agnidhra Technologies Logo" class="w-32 h-32 rounded-full mx-auto shadow-lg">
             </div>
         </section>
-
-        <!-- Courses Section -->
-        <section id="courses" class="py-20 border-t border-gray-200 fade-in-section">
+        <section id="courses" class="py-20 border-t border-gray-700 fade-in-section">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Trainings Offered</h2>
+                <h2 class="text-3xl font-bold text-center text-white mb-12">Trainings Offered</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Cyber Security Course -->
-                    <a href="cyber-security.html" class="course-card rounded-lg shadow-md p-8 text-center block">
-                        <div class="text-teal-600 mb-4">
+                    <a href="cyber-security.html" class="course-card rounded-lg p-8 text-center block">
+                        <div class="text-[#ff7f50] mb-4">
                             <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Cyber Security</h3>
-                        <p class="text-gray-600">Currently available. Dive deep into ethical hacking, network defense, and threat intelligence to protect critical systems from sophisticated attacks.</p>
+                        <h3 class="text-2xl font-bold text-gray-100 mb-3">Cyber Security</h3>
+                        <p class="text-gray-400">Currently available. Dive deep into ethical hacking, network defense, and threat intelligence to protect critical systems from sophisticated attacks.</p>
                     </a>
-                    <!-- Cloud Course -->
-                    <div class="course-card rounded-lg shadow-md p-8 text-center opacity-60 coming-soon-card">
+                    <div class="course-card rounded-lg p-8 text-center opacity-60 coming-soon-card">
                          <div class="card-content">
-                            <div class="text-teal-600 mb-4">
+                            <div class="text-[#ff7f50] mb-4">
                                 <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Cloud Computing</h3>
-                            <p class="text-gray-600">Coming Soon. Master AWS, Azure, and GCP. Learn to design, deploy, and manage scalable and cost-effective cloud solutions.</p>
+                            <h3 class="text-2xl font-bold text-gray-100 mb-3">Cloud Computing</h3>
+                            <p class="text-gray-400">Coming Soon. Master AWS, Azure, and GCP. Learn to design, deploy, and manage scalable and cost-effective cloud solutions.</p>
                         </div>
                     </div>
-                    <!-- DevOps Course -->
-                    <div class="course-card rounded-lg shadow-md p-8 text-center opacity-60 coming-soon-card">
+                    <div class="course-card rounded-lg p-8 text-center opacity-60 coming-soon-card">
                         <div class="card-content">
-                            <div class="text-teal-600 mb-4">
+                            <div class="text-[#ff7f50] mb-4">
                                 <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">DevOps</h3>
-                            <p class="text-gray-600">Coming Soon. Learn to automate workflows and accelerate delivery pipelines using modern tools like Docker, Kubernetes, and Jenkins.</p>
+                            <h3 class="text-2xl font-bold text-gray-100 mb-3">DevOps</h3>
+                            <p class="text-gray-400">Coming Soon. Learn to automate workflows and accelerate delivery pipelines using modern tools like Docker, Kubernetes, and Jenkins.</p>
                         </div>
                     </div>
-                    <!-- AI Course -->
-                    <div class="course-card rounded-lg shadow-md p-8 text-center opacity-60 coming-soon-card">
+                    <div class="course-card rounded-lg p-8 text-center opacity-60 coming-soon-card">
                         <div class="card-content">
-                            <div class="text-teal-600 mb-4">
+                            <div class="text-[#ff7f50] mb-4">
                                 <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3m6-3h3m-21 0h3m12 0h3M12 9a3 3 0 100 6 3 3 0 000-6z"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Artificial Intelligence</h3>
-                            <p class="text-gray-600">Coming Soon. Explore the world of machine learning, neural networks, and build intelligent applications.</p>
+                            <h3 class="text-2xl font-bold text-gray-100 mb-3">Artificial Intelligence</h3>
+                            <p class="text-gray-400">Coming Soon. Explore the world of machine learning, neural networks, and build intelligent applications.</p>
                         </div>
                     </div>
-                    <!-- Data Engineering Course -->
-                    <div class="course-card rounded-lg shadow-md p-8 text-center opacity-60 coming-soon-card">
+                    <div class="course-card rounded-lg p-8 text-center opacity-60 coming-soon-card">
                         <div class="card-content">
-                            <div class="text-teal-600 mb-4">
+                            <div class="text-[#ff7f50] mb-4">
                                 <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Data Engineering</h3>
-                            <p class="text-gray-600">Coming Soon. Learn to build and manage robust data pipelines, and process large-scale datasets efficiently.</p>
+                            <h3 class="text-2xl font-bold text-gray-100 mb-3">Data Engineering</h3>
+                            <p class="text-gray-400">Coming Soon. Learn to build and manage robust data pipelines, and process large-scale datasets efficiently.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Blog/News Section -->
-        <section id="blog" class="py-20 border-t border-gray-200 fade-in-section">
+        <section id="blog" class="py-20 border-t border-gray-700 fade-in-section">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Cyber Security News & Insights</h2>
+                <h2 class="text-3xl font-bold text-center text-white mb-12">Cyber Security News & Insights</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Blog Post 1 -->
-                    <div class="blog-card rounded-lg shadow-md overflow-hidden">
-                        <img src="https://placehold.co/600x400/065f46/ffffff?text=Threat+Report" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="blog-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/374151/ff7f50?text=Threat+Report" alt="Blog post image" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <p class="text-sm text-gray-500 mb-2">July 04, 2025</p>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Analysis of the Latest Phishing Campaigns</h3>
-                            <p class="text-gray-600 mb-4">A deep dive into the tactics, techniques, and procedures used in recent phishing attacks targeting corporate networks.</p>
-                            <a href="#" class="font-semibold text-teal-600 hover:text-teal-800">Read More &rarr;</a>
+                            <h3 class="text-xl font-bold text-gray-100 mb-3">Analysis of the Latest Phishing Campaigns</h3>
+                            <p class="text-gray-400 mb-4">A deep dive into the tactics, techniques, and procedures used in recent phishing attacks targeting corporate networks.</p>
+                            <a href="#" class="font-semibold text-[#ff7f50] hover:text-opacity-80">Read More &rarr;</a>
                         </div>
                     </div>
-                    <!-- Blog Post 2 -->
-                    <div class="blog-card rounded-lg shadow-md overflow-hidden">
-                        <img src="https://placehold.co/600x400/047857/ffffff?text=Cyber+News" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="blog-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/374151/ff7f50?text=Cyber+News" alt="Blog post image" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <p class="text-sm text-gray-500 mb-2">June 28, 2025</p>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Securing Your Cloud Environment: Best Practices</h3>
-                            <p class="text-gray-600 mb-4">Explore essential security measures for protecting your data and applications on public cloud platforms.</p>
-                            <a href="#" class="font-semibold text-teal-600 hover:text-teal-800">Read More &rarr;</a>
+                            <h3 class="text-xl font-bold text-gray-100 mb-3">Securing Your Cloud Environment: Best Practices</h3>
+                            <p class="text-gray-400 mb-4">Explore essential security measures for protecting your data and applications on public cloud platforms.</p>
+                            <a href="#" class="font-semibold text-[#ff7f50] hover:text-opacity-80">Read More &rarr;</a>
                         </div>
                     </div>
-                    <!-- Blog Post 3 -->
-                    <div class="blog-card rounded-lg shadow-md overflow-hidden">
-                        <img src="https://placehold.co/600x400/064e3b/ffffff?text=My+Article" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="blog-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/374151/ff7f50?text=My+Article" alt="Blog post image" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <p class="text-sm text-gray-500 mb-2">June 15, 2025</p>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">The Future of DevSecOps</h3>
-                            <p class="text-gray-600 mb-4">An article I published on how integrating security into the DevOps lifecycle is becoming non-negotiable.</p>
-                            <a href="#" class="font-semibold text-teal-600 hover:text-teal-800">Read More &rarr;</a>
+                            <h3 class="text-xl font-bold text-gray-100 mb-3">The Future of DevSecOps</h3>
+                            <p class="text-gray-400 mb-4">An article I published on how integrating security into the DevOps lifecycle is becoming non-negotiable.</p>
+                            <a href="#" class="font-semibold text-[#ff7f50] hover:text-opacity-80">Read More &rarr;</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-black/50 text-white py-8">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2025 Agnidhra Technologies. All Rights Reserved.</p>
             <p class="text-sm text-gray-400 mt-2">Built with passion and code.</p>
         </div>
     </footer>
-
     <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // JavaScript for scroll animations
-        const sections = document.querySelectorAll('.fade-in-section');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // JavaScript for active navigation link highlighting
-        const navLinks = document.querySelectorAll('.nav-link');
-        const contentSections = document.querySelectorAll('main section');
-
+        document.getElementById('mobile-menu-button').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+        const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('is-visible')), { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
         const activateNavLink = () => {
             let current = '';
-            contentSections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
+            document.querySelectorAll('main section').forEach(section => {
+                if (pageYOffset >= section.offsetTop - 150) current = section.getAttribute('id');
             });
-
-            navLinks.forEach(link => {
+            document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href').includes(current)) link.classList.add('active');
             });
         };
-
         window.addEventListener('scroll', activateNavLink);
-
-        // JavaScript for "Coming Soon" card hover effect
-        const comingSoonCards = document.querySelectorAll('.coming-soon-card');
-
-        comingSoonCards.forEach(card => {
+        document.querySelectorAll('.coming-soon-card').forEach(card => {
             const content = card.querySelector('.card-content');
             const originalContent = content.innerHTML;
-            const comingSoonMessage = `
-                <div class="text-teal-600 mb-4">
-                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">Coming Soon</h3>
-                <p class="text-gray-600">This course is under development. Check back later for updates!</p>
-            `;
-
-            card.addEventListener('mouseenter', () => {
-                content.innerHTML = comingSoonMessage;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                content.innerHTML = originalContent;
-            });
+            const comingSoonMessage = `<div class="text-[#ff7f50] mb-4"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h3 class="text-2xl font-bold text-gray-100 mb-3">Coming Soon</h3><p class="text-gray-400">This course is under development. Check back later for updates!</p>`;
+            card.addEventListener('mouseenter', () => content.innerHTML = comingSoonMessage);
+            card.addEventListener('mouseleave', () => content.innerHTML = originalContent);
         });
     </script>
-
 </body>
 </html>
