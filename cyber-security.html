@@ -4,34 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Security Course - Agnidhra Technologies</title>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon (Optional - replace with your own) -->
-    <link rel="icon" href="https://placehold.co/32x32/047857/ffffff?text=AT" type="image/png">
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fffaf0; /* Peachy-beige background */
-            color: #2d3748; /* Dark gray text for contrast */
+            background-color: #1f2937; /* Slate Gray */
+            color: #d1d5db; /* Light gray text */
         }
         .nav-link {
             transition: color 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out;
             border-bottom: 2px solid transparent;
         }
         .nav-link:hover, .nav-link.active {
-            color: #047857; /* Deep Teal highlight color */
-            border-bottom-color: #047857;
+            color: #ff7f50; /* Coral */
+            border-bottom-color: #ff7f50;
         }
         .content-section {
-            background-color: #f0fdfa; /* Soft, muted teal for content sections */
+            background-color: #374151; /* Darker Gray */
+            border: 1px solid #4b5563;
         }
         .content-section ul {
             list-style-type: none;
@@ -46,68 +39,64 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: #047857;
+            color: #ff7f50;
             font-weight: bold;
         }
         .topic-description {
             margin-left: 1.5rem;
             padding-left: 0;
             font-size: 0.9rem;
-            color: #4a5568;
-            border-left: 2px solid #e2e8f0;
+            color: #9ca3af; /* Lighter gray for descriptions */
+            border-left: 2px solid #4b5563;
             padding-left: 1rem;
             margin-top: 0.25rem;
         }
     </style>
 </head>
 <body class="antialiased">
-
-    <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <header class="bg-[#1f2937]/80 backdrop-blur-md shadow-lg shadow-black/20 sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-800">Agnidhra Technologies</a>
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg class="w-9 h-9 text-[#ff7f50]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <span class="text-2xl font-bold text-gray-100">Agnidhra Technologies</span>
+            </a>
             <ul class="hidden md:flex space-x-8">
-                <li><a href="index.html#about" class="nav-link text-gray-600 font-medium pb-1">About Us</a></li>
-                <li><a href="index.html#courses" class="nav-link text-gray-600 font-medium pb-1">Courses</a></li>
-                <li><a href="index.html#blog" class="nav-link text-gray-600 font-medium pb-1">Blog</a></li>
+                <li><a href="index.html#about" class="nav-link text-gray-300 font-medium pb-1">About Us</a></li>
+                <li><a href="index.html#courses" class="nav-link text-gray-300 font-medium pb-1">Courses</a></li>
+                <li><a href="index.html#blog" class="nav-link text-gray-300 font-medium pb-1">Blog</a></li>
             </ul>
-             <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <li><a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">About Us</a></li>
-                <li><a href="index.html#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">Courses</a></li>
-                <li><a href="index.html#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-gray-50">Blog</a></li>
+                <li><a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">About Us</a></li>
+                <li><a href="index.html#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Courses</a></li>
+                <li><a href="index.html#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Blog</a></li>
             </ul>
         </div>
     </header>
-
     <main class="container mx-auto px-6 py-12">
-
-        <!-- Course Hero Section -->
         <section class="text-center py-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Cyber Security Professional Program</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Your gateway to becoming a certified security professional, with a primary focus on SOC analysis.</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Cyber Security Professional Program</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Your gateway to becoming a certified security professional, with a primary focus on SOC analysis.</p>
         </section>
-
         <div class="max-w-4xl mx-auto space-y-8">
-            <!-- What is Cyber Security? -->
-            <section class="content-section p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">What is Cyber Security?</h2>
-                <p class="text-gray-700">Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes. Implementing effective cybersecurity measures is particularly challenging today because there are more devices than people, and attackers are becoming more innovative.</p>
+            <section class="content-section p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-white mb-4">What is Cyber Security?</h2>
+                <p class="text-gray-300">Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes. Implementing effective cybersecurity measures is particularly challenging today because there are more devices than people, and attackers are becoming more innovative.</p>
             </section>
-
-            <!-- Career Paths -->
-            <section class="content-section p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Career Paths in Cyber Security</h2>
+            <section class="content-section p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-white mb-4">Career Paths in Cyber Security</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">For Freshers</h3>
-                        <p class="text-gray-700 mb-4">Entry-level roles are a great way to get your foot in the door. They typically focus on monitoring, incident response, and vulnerability assessment.</p>
-                        <ul class="list-disc pl-5 text-gray-700">
+                        <h3 class="text-xl font-semibold text-white mb-2">For Freshers</h3>
+                        <p class="text-gray-300 mb-4">Entry-level roles are a great way to get your foot in the door. They typically focus on monitoring, incident response, and vulnerability assessment.</p>
+                        <ul class="list-disc pl-5 text-gray-300">
                             <li>SOC Analyst (Tier 1)</li>
                             <li>Cybersecurity Technician</li>
                             <li>IT Auditor</li>
@@ -115,9 +104,9 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">For Experienced Professionals</h3>
-                        <p class="text-gray-700 mb-4">With experience, you can move into specialized and leadership roles that require deep technical expertise and strategic thinking.</p>
-                        <ul class="list-disc pl-5 text-gray-700">
+                        <h3 class="text-xl font-semibold text-white mb-2">For Experienced Professionals</h3>
+                        <p class="text-gray-300 mb-4">With experience, you can move into specialized and leadership roles that require deep technical expertise and strategic thinking.</p>
+                        <ul class="list-disc pl-5 text-gray-300">
                             <li>Penetration Tester / Ethical Hacker</li>
                             <li>Security Architect</li>
                             <li>Cybersecurity Manager (CISO)</li>
@@ -126,19 +115,15 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Focus on SOC Analyst -->
-            <section class="content-section p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Primary Focus: SOC Analyst</h2>
-                <p class="text-gray-700">This program is primarily designed to build a strong foundation for a career as a Security Operations Center (SOC) Analyst. A SOC Analyst is the first line of defense, responsible for monitoring and analyzing an organization's security posture on an ongoing basis. You will learn to detect, analyze, and respond to cybersecurity incidents using a combination of cutting-edge technology and a strong foundational knowledge of threats and vulnerabilities.</p>
+            <section class="content-section p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-white mb-4">Primary Focus: SOC Analyst</h2>
+                <p class="text-gray-300">This program is primarily designed to build a strong foundation for a career as a Security Operations Center (SOC) Analyst. A SOC Analyst is the first line of defense, responsible for monitoring and analyzing an organization's security posture on an ongoing basis. You will learn to detect, analyze, and respond to cybersecurity incidents using a combination of cutting-edge technology and a strong foundational knowledge of threats and vulnerabilities.</p>
             </section>
-
-            <!-- Curriculum -->
-            <section class="content-section p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-4">Course Curriculum & Tools</h2>
+            <section class="content-section p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-white mb-6 border-b border-gray-600 pb-4">Course Curriculum & Tools</h2>
                 <div class="space-y-8">
                     <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Prerequisites & Fundamentals</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-4">Prerequisites & Fundamentals</h3>
                         <ul>
                             <li>
                                 Computer Networking Basics (OSI Model, TCP/IP)
@@ -155,7 +140,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">SOC Core Content</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-4">SOC Core Content</h3>
                         <ul>
                             <li>
                                 Incident Detection and Response
@@ -184,8 +169,8 @@
                         </ul>
                     </div>
                      <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Key Tools You Will Learn</h3>
-                        <ul class="list-disc pl-5 text-gray-700">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Key Tools You Will Learn</h3>
+                        <ul class="list-disc pl-5 text-gray-300">
                             <li><strong>SIEM:</strong> Splunk, IBM QRadar, ELK Stack</li>
                             <li><strong>Endpoint Detection & Response (EDR):</strong> CrowdStrike, SentinelOne</li>
                             <li><strong>Network Analysis:</strong> Wireshark, Zeek (Bro)</li>
@@ -195,26 +180,15 @@
                 </div>
             </section>
         </div>
-
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
+    <footer class="bg-black/50 text-white py-8 mt-12">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2025 Agnidhra Technologies. All Rights Reserved.</p>
             <p class="text-sm text-gray-400 mt-2">Built with passion and code.</p>
         </div>
     </footer>
-
     <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        document.getElementById('mobile-menu-button').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
     </script>
-
 </body>
 </html>
