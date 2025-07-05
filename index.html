@@ -131,7 +131,7 @@
                 <ul class="hidden md:flex space-x-8">
                     <li><a href="#about" class="nav-link text-gray-300 font-medium pb-1">About Us</a></li>
                     <li><a href="#courses" class="nav-link text-gray-300 font-medium pb-1">Courses</a></li>
-                    <li><a href="#blog" class="nav-link text-gray-300 font-medium pb-1">Blog</a></li>
+                    <li><a href="#news" class="nav-link text-gray-300 font-medium pb-1">Cyber News</a></li>
                 </ul>
                 <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -141,7 +141,7 @@
                 <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <li><a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">About Us</a></li>
                     <li><a href="#courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Courses</a></li>
-                    <li><a href="#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Blog</a></li>
+                    <li><a href="#news" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#ff7f50] hover:bg-[#374151]">Cyber News</a></li>
                 </ul>
             </div>
         </header>
@@ -210,37 +210,12 @@
                     </div>
                 </div>
             </section>
-            <section id="blog" class="py-20 border-t border-gray-700 fade-in-section">
+            <section id="news" class="py-20 border-t border-gray-700 fade-in-section">
                 <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl font-bold text-center text-white mb-12">Cyber Security News & Insights</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="blog-card rounded-lg overflow-hidden">
-                            <img src="https://placehold.co/600x400/374151/ff7f50?text=Threat+Report" alt="Blog post image" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <p class="text-sm text-gray-500 mb-2">July 05, 2025</p>
-                                <h3 class="text-xl font-bold text-gray-100 mb-3">Analysis of the Latest Phishing Campaigns</h3>
-                                <p class="text-gray-400 mb-4">A deep dive into the tactics, techniques, and procedures used in recent phishing attacks targeting corporate networks.</p>
-                                <a href="#" class="font-semibold text-[#ff7f50] hover:text-opacity-80">Read More &rarr;</a>
-                            </div>
-                        </div>
-                        <div class="blog-card rounded-lg overflow-hidden">
-                            <img src="https://placehold.co/600x400/374151/ff7f50?text=Cyber+News" alt="Blog post image" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <p class="text-sm text-gray-500 mb-2">June 28, 2025</p>
-                                <h3 class="text-xl font-bold text-gray-100 mb-3">Securing Your Cloud Environment: Best Practices</h3>
-                                <p class="text-gray-400 mb-4">Explore essential security measures for protecting your data and applications on public cloud platforms.</p>
-                                <a href="#" class="font-semibold text-[#ff7f50] hover:text-opacity-80">Read More &rarr;</a>
-                            </div>
-                        </div>
-                        <div class="blog-card rounded-lg overflow-hidden">
-                            <img src="https://placehold.co/600x400/374151/ff7f50?text=My+Article" alt="Blog post image" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <p class="text-sm text-gray-500 mb-2">June 15, 2025</p>
-                                <h3 class="text-xl font-bold text-gray-100 mb-3">The Future of DevSecOps</h3>
-                                <p class="text-gray-400 mb-4">An article I published on how integrating security into the DevOps lifecycle is becoming non-negotiable.</p>
-                                <a href="#" class="font-semibold text-[#ff7f50] hover:text-opacity-80">Read More &rarr;</a>
-                            </div>
-                        </div>
+                    <h2 class="text-3xl font-bold text-center text-white mb-12">Cyber News & Insights</h2>
+                    <!-- News articles will be injected here by JavaScript -->
+                    <div id="news-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <p class="text-center col-span-full">Fetching latest news...</p>
                     </div>
                 </div>
             </section>
@@ -261,17 +236,13 @@
                 loader.classList.add('hidden');
                 mainContent.style.display = 'block';
 
-                // ** NEW CODE TO HANDLE SCROLLING **
-                // Check if there's a hash in the URL (e.g., #about)
                 if (window.location.hash) {
-                    // Find the element with that ID and scroll to it
                     const element = document.querySelector(window.location.hash);
                     if (element) {
                         element.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
 
-                // Trigger fade-in for sections visible on load
                 document.querySelectorAll('.fade-in-section').forEach(section => {
                     if (section.getBoundingClientRect().top < window.innerHeight) {
                         section.classList.add('is-visible');
@@ -279,17 +250,13 @@
                 });
             };
 
-            // ** NEW LOGIC **
-            // Check if the user came from another page on the same site AND is linking to a section
             const cameFromSameSite = document.referrer.includes(window.location.origin);
             if (cameFromSameSite && window.location.hash) {
-                // If so, skip the animation and show content immediately
                 showContent();
             } else {
-                // Otherwise (direct visit, refresh, or no hash), play the animation
                 setTimeout(() => {
                     showContent();
-                }, 3000); // 3-second loading screen
+                }, 3000); 
             }
         });
 
@@ -323,6 +290,51 @@
             const comingSoonMessage = `<div class="text-[#ff7f50] mb-4"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h3 class="text-2xl font-bold text-gray-100 mb-3">Coming Soon</h3><p class="text-gray-400">This course is under development. Check back later for updates!</p>`;
             card.addEventListener('mouseenter', () => content.innerHTML = comingSoonMessage);
             card.addEventListener('mouseleave', () => content.innerHTML = originalContent);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsGrid = document.getElementById('news-grid');
+            const rssUrl = 'https://feeds.feedburner.com/TheHackerNews';
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        newsGrid.innerHTML = ''; 
+                        const items = data.items.slice(0, 3); 
+                        
+                        items.forEach(item => {
+                            const tempDiv = document.createElement('div');
+                            tempDiv.innerHTML = item.description;
+                            const descriptionText = tempDiv.textContent || tempDiv.innerText || '';
+                            const truncatedDescription = descriptionText.substring(0, 120) + '...';
+
+                            const pubDate = new Date(item.pubDate).toLocaleDateString('en-US', {
+                                year: 'numeric', month: 'long', day: 'numeric'
+                            });
+
+                            const cardHtml = `
+                                <div class="blog-card rounded-lg overflow-hidden flex flex-col">
+                                    <img src="${item.thumbnail || 'https://placehold.co/600x400/374151/ff7f50?text=News'}" alt="News article image" class="w-full h-48 object-cover">
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <p class="text-sm text-gray-500 mb-2">${pubDate}</p>
+                                        <h3 class="text-xl font-bold text-gray-100 mb-3">${item.title}</h3>
+                                        <p class="text-gray-400 mb-4 flex-grow">${truncatedDescription}</p>
+                                        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#ff7f50] hover:text-opacity-80 mt-auto">Read More &rarr;</a>
+                                    </div>
+                                </div>
+                            `;
+                            newsGrid.innerHTML += cardHtml;
+                        });
+                    } else {
+                        newsGrid.innerHTML = '<p class="text-center col-span-full text-red-400">Could not fetch news at this time.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching RSS feed:', error);
+                    newsGrid.innerHTML = '<p class="text-center col-span-full text-red-400">Could not fetch news at this time.</p>';
+                });
         });
     </script>
 </body>
