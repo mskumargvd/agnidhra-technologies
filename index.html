@@ -292,44 +292,60 @@
             card.addEventListener('mouseleave', () => content.innerHTML = originalContent);
         });
 
+        // ** SCRIPT TO FETCH RSS FEED (UPDATED) **
         document.addEventListener('DOMContentLoaded', () => {
             const newsGrid = document.getElementById('news-grid');
             const rssUrl = 'https://feeds.feedburner.com/TheHackerNews';
-            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+            // Using AllOrigins as a CORS proxy
+            const proxyUrl = 'https://api.allorigins.win/get?url=';
+            const apiUrl = `${proxyUrl}${encodeURIComponent(rssUrl)}`;
 
             fetch(apiUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (response.ok) return response.json();
+                    throw new Error('Network response was not ok.');
+                })
                 .then(data => {
-                    if (data.status === 'ok') {
-                        newsGrid.innerHTML = ''; 
-                        const items = data.items.slice(0, 3); 
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data.contents, "application/xml");
+                    const items = xmlDoc.querySelectorAll("item");
+                    
+                    newsGrid.innerHTML = ''; // Clear the "fetching" message
+                    let count = 0;
+
+                    items.forEach(item => {
+                        if (count >= 3) return; // Show only the first 3 articles
+
+                        const title = item.querySelector("title").textContent;
+                        const link = item.querySelector("link").textContent;
+                        const pubDateStr = item.querySelector("pubDate").textContent;
+                        const descriptionHTML = item.querySelector("description").textContent;
                         
-                        items.forEach(item => {
-                            const tempDiv = document.createElement('div');
-                            tempDiv.innerHTML = item.description;
-                            const descriptionText = tempDiv.textContent || tempDiv.innerText || '';
-                            const truncatedDescription = descriptionText.substring(0, 120) + '...';
+                        // Extract image from description, default to placeholder
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = descriptionHTML;
+                        const imageUrl = tempDiv.querySelector('img')?.src || 'https://placehold.co/600x400/374151/ff7f50?text=News';
+                        const descriptionText = tempDiv.textContent || '';
+                        const truncatedDescription = descriptionText.substring(0, 120) + '...';
 
-                            const pubDate = new Date(item.pubDate).toLocaleDateString('en-US', {
-                                year: 'numeric', month: 'long', day: 'numeric'
-                            });
-
-                            const cardHtml = `
-                                <div class="blog-card rounded-lg overflow-hidden flex flex-col">
-                                    <img src="${item.thumbnail || 'https://placehold.co/600x400/374151/ff7f50?text=News'}" alt="News article image" class="w-full h-48 object-cover">
-                                    <div class="p-6 flex flex-col flex-grow">
-                                        <p class="text-sm text-gray-500 mb-2">${pubDate}</p>
-                                        <h3 class="text-xl font-bold text-gray-100 mb-3">${item.title}</h3>
-                                        <p class="text-gray-400 mb-4 flex-grow">${truncatedDescription}</p>
-                                        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#ff7f50] hover:text-opacity-80 mt-auto">Read More &rarr;</a>
-                                    </div>
-                                </div>
-                            `;
-                            newsGrid.innerHTML += cardHtml;
+                        const pubDate = new Date(pubDateStr).toLocaleDateString('en-US', {
+                            year: 'numeric', month: 'long', day: 'numeric'
                         });
-                    } else {
-                        newsGrid.innerHTML = '<p class="text-center col-span-full text-red-400">Could not fetch news at this time.</p>';
-                    }
+
+                        const cardHtml = `
+                            <div class="blog-card rounded-lg overflow-hidden flex flex-col">
+                                <img src="${imageUrl}" alt="News article image" class="w-full h-48 object-cover">
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <p class="text-sm text-gray-500 mb-2">${pubDate}</p>
+                                    <h3 class="text-xl font-bold text-gray-100 mb-3">${title}</h3>
+                                    <p class="text-gray-400 mb-4 flex-grow">${truncatedDescription}</p>
+                                    <a href="${link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#ff7f50] hover:text-opacity-80 mt-auto">Read More &rarr;</a>
+                                </div>
+                            </div>
+                        `;
+                        newsGrid.innerHTML += cardHtml;
+                        count++;
+                    });
                 })
                 .catch(error => {
                     console.error('Error fetching RSS feed:', error);
